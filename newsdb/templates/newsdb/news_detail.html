@@ -1,0 +1,18 @@
+{% extends 'newsdb/base.html' %}
+{% block title %}
+  {{ singlenews.heading }}
+{% endblock %}
+{% block content %}
+  <div class="news">
+    <div class="heading">
+      {{ news.heading }}
+    </div>
+    <div class="image">
+      <img src="{{ singlenews.image.url }}" alt="{{ singlenews.heading }}">
+    </div>
+    {% include 'newsdb/news_tags.html' with news=singlenews %}
+    <div class="news-text">
+      {{ singlenews.text }}
+    </div>
+  </div>
+{% endblock %}

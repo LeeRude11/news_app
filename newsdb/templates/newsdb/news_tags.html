@@ -1,0 +1,14 @@
+<div class="tags">
+  Tags:
+  {% for tag in news.tags.all %}
+    <a href="{% url 'newsdb:news_by_tag' tag.name %}">
+      <span>
+        {{ tag.name }}
+      </span>
+    </a>
+  {% empty %}
+    <span>
+      None
+    </span>
+  {% endfor %}
+</div>

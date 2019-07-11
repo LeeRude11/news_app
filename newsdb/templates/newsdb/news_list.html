@@ -1,0 +1,18 @@
+{% extends 'newsdb/base.html' %}
+{% block title %}
+  {{ page_title | default:"All News" }}
+{% endblock %}
+{% block content %}
+  {% for news in singlenews_list %}
+    <div class="news">
+      <div class="heading">
+        <a href="{% url 'newsdb:news_detail' news.id %}">
+          {{ news.heading }}
+        </a>
+      </div>
+      {% include 'newsdb/news_tags.html' %}
+    </div>
+  {% empty %}
+    <div>No news...</div>
+  {% endfor %}
+{% endblock %}
