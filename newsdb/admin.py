@@ -8,6 +8,9 @@ class NewsAdmin(admin.ModelAdmin):
     list_filter = ('tags',)
 
     def get_tags(self, news):
+        """
+        Show a string of concatenated tags.
+        """
         return ', '.join(tag.name for tag in news.tags.all()) or 'None'
 
     get_tags.short_description = 'Tags List'
